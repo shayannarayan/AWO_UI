@@ -1,0 +1,43 @@
+.example-container
+{
+    position: fixed;
+    background: dimgray;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.example-button-row{
+    display: block;
+    align-items:baseline;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    background: firebrick;
+
+}
+
+.contain
+{
+    background-color: #27B994;
+}
+
+.image
+{
+    border-radius: 50%;
+    cursor: pointer; 
+}
+
+
+.icon
+{
+    cursor: pointer; 
+    font-size: 35px;
+    color: #ffffff;
+}
+ body{
+     margin: 0px;
+     
+ }

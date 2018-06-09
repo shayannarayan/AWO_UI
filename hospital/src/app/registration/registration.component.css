@@ -1,0 +1,28 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+.contain
+{
+    background-color: #27B994;
+}
+
+.image
+{
+    border-radius: 50%;
+    cursor: pointer; 
+}
+
+
+.icon
+{
+    cursor: pointer; 
+    font-size: 35px;
+    color: #ffffff;
+}
+
+.panel-footer
+{
+    text-align: center;
+}

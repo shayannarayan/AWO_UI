@@ -1,0 +1,28 @@
+<mat-grid-list cols="11" rowHeight="80px" class="contain">
+        <mat-grid-tile colspan="1">
+          <img class="image" src="../assets/logo.jpg" width="80px" height="80px">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="9"></mat-grid-tile>
+        <mat-grid-tile colspan="1">
+          <a><mat-icon class="icon" title="CLICK HERE TO REGISTER/LOGIN">account_circle</mat-icon></a>
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+
+
+
+
+<mat-sidenav-container class="example-container" style="top: 80px;  " >
+    <mat-sidenav mode="side" opened  >
+        <div class="button-row"  >
+               
+            <a routerLink="/hospital"><button mat-raised-button color="accent" style="width: 100%; ">hospitals</button><br/></a>
+          <a routerLink="/bloodBank">  <button mat-raised-button color="accent"style="width: 100%">BloodBanks</button><br/></a>
+           <a routerLink="/donors"> <button mat-raised-button color="accent"style="width: 100%">Donor</button><br/></a>
+            <a routerLink="/requests"> <button mat-raised-button color="accent" style="width: 100%">Requests  </button> <br/></a>  
+            <a mat-raised-button [routerLink]="[ '/admin',{outlets:{'route1':['requests'] } } ] ">Link</a>   
+        </div> </mat-sidenav>
+        
+    <mat-sidenav-content> <router-outlet></router-outlet> </mat-sidenav-content>
+    
+</mat-sidenav-container>

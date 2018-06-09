@@ -1,0 +1,32 @@
+.contain
+{
+    background-color: #27B994;
+    margin: 0px;
+}
+
+.image
+{
+    border-radius: 50%;
+    cursor: pointer; 
+}
+
+
+.icon
+{
+    cursor: pointer; 
+    font-size: 35px;
+    color: #ffffff;
+}
+
+.example-container
+{
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    height: 350px;
+}
+
+body
+{
+    margin: 0px;
+}

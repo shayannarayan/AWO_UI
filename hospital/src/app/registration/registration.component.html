@@ -1,0 +1,138 @@
+<!--header-->
+<mat-grid-list cols="11" rowHeight="80px" class="contain">
+    <mat-grid-tile colspan="1">
+      <img class="image" src="../assets/logo.jpg" width="80px" height="80px">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="9"></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <a><mat-icon class="icon" title="CLICK HERE TO REGISTER/LOGIN">account_circle</mat-icon></a>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+<!--register-->
+<mat-grid-list  cols="12" rowHeight="1300px"> 
+  <mat-grid-tile colspan="2"></mat-grid-tile>
+  <mat-grid-tile colspan="6" style="width: 100%;padding: 1px; margin: 70px;border: 1px solid midnightblue ">
+    <form #donorForm="ngForm" (ngSubmit)="saveDonor(donor) " style="width: 75%" > 
+      <div class="example-container"  >
+          <h2 style="text-align: center;">REGISTRATION</h2>
+        <mat-form-field [class.has-error]="firstName.invalid && firstName.touched" >
+          <input required matInput placeholder="FirstName" id="firstName" name="firstName"  [(ngModel)]="donor.firstName" type="text" #firstName="ngModel" pattern="[a-zA-Z]+" >
+          <span class="help-block" *ngIf="firstName.errors?.required && firstName.touched">
+            Please enter your name
+          </span>
+          <span class="help-block" *ngIf="firstName.errors?.pattern && firstName.touched">
+            Invalid name
+          </span>
+      
+        </mat-form-field>
+      
+        <mat-form-field>
+            <input  matInput placeholder="MiddleName" id="middleName" name="middleName" [(ngModel)]="donor.middleName" type="text" #middleName="ngModel" pattern="[a-zA-Z]+">
+          <span class="help-block" *ngIf="middleName.errors?.pattern && middleName.touched">
+            Invalid MiddleName
+          </span>
+          </mat-form-field>
+      
+          <mat-form-field>
+              <input matInput placeholder="LastName" id="lastName" name="lastName" [(ngModel)]="donor.lastName" type="text" #lastName="ngModel" pattern="[a-zA-Z]+">
+              <span class="help-block" *ngIf="lastName.errors?.pattern && lastName.touched">
+                Invalid LastName
+              </span>
+            </mat-form-field>
+      
+            <mat-form-field class="example-full-width">
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="date of birth" id=dateOfBirth name="dateOfBirth" [(ngModel)]="donor.dateOfBirth"  #dateOfBirth="ngModel" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        
+            <mat-form-field>
+              <mat-select required placeholder="bloodgroup" name="bloodgroup" id="bloodgroup" [(ngModel)]="donor.bloodgroup" #bloodGroup="ngModel" >
+                
+                <mat-option  *ngFor="let blood of bloodgroup" [value]="blood">
+                  {{blood}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+            <mat-form-field>
+                <input matInput required placeholder="Age" id="age" name="age" [(ngModel)]="donor.age" type="number" #age="ngModel" >
+              </mat-form-field>
+      
+              <mat-form-field>
+                <mat-select required placeholder="gender" name="gender" id="gender" [(ngModel)]="donor.gender" #gender="ngModel" >
+                  
+                  <mat-option  *ngFor="let gender of genders" [value]="gender">
+                    {{gender}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        
+      
+      
+          <h3 style="color:#949494;">Address</h3>
+          
+          <mat-form-field>
+            <input matInput placeholder="Street" id="street" name="street" [(ngModel)]="donor.street" #street="ngModel" >
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Area" id="area" name="area" [(ngModel)]="donor.area" #area="ngModel" >
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="City" id="city" [(ngModel)]="donor.city" #city="ngModel" name="city" >
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="pincode" id="pincode" [(ngModel)]="donor.pincode" #pincode="ngModel" name="pincode" type="number" pattern="[0-9]{6}" >
+            <span class="help-block" *ngIf="pincode.errors?.pattern && pincode.touched">
+              Invalid pincode
+            </span>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput required placeholder="Phone Number" id="phoneNumber" name="phoneNumber" [(ngModel)]="donor.phoneNumber" #phoneNumber="ngModel" pattern="[0-9]{10}" >
+            <span class="help-block" *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">
+              Invalid phoneNumber
+            </span>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Email-Id" id="emailID" type="email" name="emailID" [(ngModel)]="donor.emailID" #emailID="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <span class="help-block" *ngIf="emailID.errors?.pattern && emailID.touched">
+              Invalid mail id
+            </span> 
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Enter password" required type="password" id="password" name="password" [(ngModel)] ="donor.password" #password="ngModel" >
+            <span class="help-block" *ngIf="password.errors?.required && password.touched ">
+              Password is required
+            </span>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Confirm password" appConfirmValidator="password" type="password" id="confirmPassword" required name="confirmPassword" [(ngModel)]="donor.confirmPassword" #confirmPassword="ngModel" >
+            <span class="help-block" *ngIf="password.errors?.required && password.touched">
+              Confirm password is required
+            </span>
+            <span class="help-block" *ngIf="confirmPassword.errors?.notEqual && !confirmPassword.errors?.required && confirmPassword.touched">
+              Password and confirmPassword does not match
+            </span>
+          </mat-form-field>
+      
+      
+      
+        <br/>
+        <br/>
+        <div class="panel-footer">
+          <button type="submit" mat-raised-button>save</button>
+        </div>
+        </div>
+        
+        </form>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4"></mat-grid-tile>
+</mat-grid-list>
